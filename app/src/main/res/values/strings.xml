@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Team Maker</string>
+    <string name="action_save">Save</string>
+    <string name="set_name_category">Category name</string>
+</resources>

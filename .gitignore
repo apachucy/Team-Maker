@@ -6,3 +6,6 @@
 /build
 */.idea
 */*/build
+.idea
+.idea/workspace.xml
+.idea/libraries
