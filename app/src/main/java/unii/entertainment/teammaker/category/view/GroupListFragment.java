@@ -10,15 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import unii.entertainment.teammaker.R;
-import unii.entertainment.teammaker.category.viewmodel.GroupListViewModel;
+import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;
 
 public class GroupListFragment extends LifecycleFragment {
-    private GroupListViewModel viewModel;
+    private CategoryListViewModel viewModel;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(GroupListViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(CategoryListViewModel.class);
         viewModel.getCategoryList().observe(this, categoryList -> {
             //Update UI ?
         });

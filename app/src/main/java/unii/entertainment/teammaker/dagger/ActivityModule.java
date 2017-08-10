@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 
 
 import dagger.Module;
-import unii.entertainment.teammaker.category.viewmodel.GroupListViewModel;
 
 
 @Module

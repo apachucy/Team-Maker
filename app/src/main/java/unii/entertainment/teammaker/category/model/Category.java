@@ -6,13 +6,10 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class Category {
 
-
-    /**
-     * Id needs to be public :(
-     */
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String categoryName;
+    //Add number of people in category
 
     public String getCategoryName() {
         return categoryName;

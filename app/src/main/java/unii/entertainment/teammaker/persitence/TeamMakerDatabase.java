@@ -16,15 +16,6 @@ import unii.entertainment.teammaker.player.persistance.PlayerDao;
 //@TypeConverters(GenderConverter.class)
 
 public abstract class TeamMakerDatabase extends RoomDatabase {
-    private static TeamMakerDatabase INSTANCE;
-
-    public static TeamMakerDatabase getDatabase(Context context) {
-        if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), TeamMakerDatabase.class, "team_maker_db")
-                    .build();
-        }
-        return INSTANCE;
-    }
 
     public abstract CategoryDao getCategoryDao();
 

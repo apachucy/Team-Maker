@@ -1,5 +1,6 @@
 package unii.entertainment.teammaker.category.persistence;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -16,12 +17,14 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 public interface CategoryDao {
     @Insert(onConflict = REPLACE)
     void save(Category category);
-//TODO: ważne - nie używać słów których używa sql jako nazwy tabeli...
-      @Query("SELECT * FROM Category WHERE id = :cId LIMIT 1")//
-       public Category loadCategoryById(int cId);
+
+    //TODO: ważne - nie używać słów których używa sql jako nazwy tabeli...
+    @Query("SELECT * FROM Category WHERE id = :cId LIMIT 1")//
+    public Category loadCategoryById(int cId);
+
 
     @Query("SELECT * FROM Category")
-    public List<Category> loadAllCategory();
+    public LiveData<List<Category>> loadAllCategory();
 
     @Delete
     void remove(Category category);
