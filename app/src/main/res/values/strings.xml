@@ -2,4 +2,13 @@
     <string name="app_name">Team Maker</string>
     <string name="action_save">Save</string>
     <string name="set_name_category">Category name</string>
+    <string name="empty_text_warning">This list is currently empty</string>
+
+    <!-- dialogs-->
+    <string name="dialog_add_category_title">Category</string>
+    <string name="dialog_add_category_body">To add players you need to create a category</string>
+    <string name="dialog_add_category_hint">Write category name</string>
+    <string name="dialog_prefill">Volleyball</string>
+    <!--end dialogs -->
+
 </resources>

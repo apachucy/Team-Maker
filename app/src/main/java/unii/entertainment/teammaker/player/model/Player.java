@@ -1,32 +1,18 @@
 package unii.entertainment.teammaker.player.model;
 
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-import android.arch.persistence.room.PrimaryKey;
-
-import unii.entertainment.teammaker.category.model.Category;
-
-import static android.arch.persistence.room.ForeignKey.CASCADE;
-
-@Entity(foreignKeys = @ForeignKey(entity = Category.class,
-        parentColumns = "id",
-        childColumns = "categoryId",
-        onDelete = CASCADE))
-
 public class Player {
     /**
      * Id needs to be public :(
      */
-    @PrimaryKey(autoGenerate = true)
     public int id;
     private int categoryId;
 
-    private String gender;
+    private Gender gender;
     private int advancementLevel;
     private String nickName;
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
@@ -46,7 +32,7 @@ public class Player {
         this.nickName = nickName;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

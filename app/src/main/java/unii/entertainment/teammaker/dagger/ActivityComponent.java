@@ -1,8 +1,9 @@
 package unii.entertainment.teammaker.dagger;
-
+/*
 
 import dagger.Subcomponent;
 import unii.entertainment.teammaker.CategoryListActivity;
+import unii.entertainment.teammaker.category.view.CategoryFragment;
 import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;
 
 @ActivityScope
@@ -10,7 +11,10 @@ import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;
 public interface ActivityComponent {
     void inject(CategoryListActivity mainActivity);
 
-    void inject (CategoryListViewModel viewModel);
+    void inject(CategoryListViewModel viewModel);
+
+    void inject(CategoryFragment categoryFragment);
 }
 
 
+*/

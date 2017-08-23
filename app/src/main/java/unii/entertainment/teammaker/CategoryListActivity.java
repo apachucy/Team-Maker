@@ -1,13 +1,19 @@
 package unii.entertainment.teammaker;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CategoryListActivity extends AppCompatActivity {
+import unii.entertainment.teammaker.base.viewmodel.BaseActivity;
+
+public class CategoryListActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_list);
     }
+
+ /*   @Override
+    protected void injectDependencies(ActivityComponent activityComponent) {
+        activityComponent.inject(this);
+    }*/
 }

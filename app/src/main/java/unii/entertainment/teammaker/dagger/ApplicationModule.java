@@ -9,7 +9,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import unii.entertainment.teammaker.persitence.TeamMakerDatabase;
-
+/*
 @Module
 public class ApplicationModule implements IApplicationModule {
 
@@ -26,9 +26,8 @@ public class ApplicationModule implements IApplicationModule {
     @Provides
     @Singleton
     public TeamMakerDatabase provideDatabase() {
-        return Room.databaseBuilder(mContext.getApplicationContext(), TeamMakerDatabase.class, "team_maker_db")
-                .build();
+        return null;
     }
 
 
-}
+}*/

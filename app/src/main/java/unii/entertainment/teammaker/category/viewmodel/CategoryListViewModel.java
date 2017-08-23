@@ -1,7 +1,6 @@
 package unii.entertainment.teammaker.category.viewmodel;
 
 
-import android.arch.lifecycle.LiveData;
 import android.support.annotation.Nullable;
 
 import java.util.HashMap;
@@ -15,17 +14,17 @@ import unii.entertainment.teammaker.player.persistance.PlayerDao;
 
 public class CategoryListViewModel extends BaseViewModel {
 
-    private LiveData<List<Category>> categoryList;
+    private List<Category> categoryList;
     private Map<Integer, Integer> playersInSelectedCategory;
 
-    public LiveData<List<Category>> getCategoryList() {
+    public List<Category> getCategoryList() {
         return categoryList;
     }
 
-    public CategoryListViewModel(TeamMakerDatabase teamMakerDatabase) {
+    public void init(TeamMakerDatabase teamMakerDatabase) {
         categoryList = teamMakerDatabase.getCategoryDao().loadAllCategory();
         playersInSelectedCategory = new HashMap<>();
-        if (categoryList.getValue() == null) {
+        if (categoryList == null) {
             return;
         }
         populateMap(teamMakerDatabase.getPlayerDao());
@@ -33,12 +32,12 @@ public class CategoryListViewModel extends BaseViewModel {
     }
 
     @Nullable
-    public Integer getPlayersWithId(int categoryId) {
+    public Integer countPlayersWithCategoryId(int categoryId) {
         return playersInSelectedCategory.get(categoryId);
     }
 
     private void populateMap(PlayerDao playerDao) {
-        for (Category category : categoryList.getValue()) {
+        for (Category category : categoryList) {
             Integer counted = playerDao.countAllPlayerIdsWithProvidedCategory(category.getId());
             if (counted != null && counted > 0) {
                 playersInSelectedCategory.put(category.getId(), counted);

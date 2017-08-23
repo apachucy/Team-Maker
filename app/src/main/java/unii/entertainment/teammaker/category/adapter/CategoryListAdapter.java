@@ -15,7 +15,6 @@ import butterknife.OnClick;
 import unii.entertainment.teammaker.R;
 import unii.entertainment.teammaker.category.model.Category;
 import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;
-import unii.entertainment.teammaker.category.viewmodel.GroupViewModel;
 
 public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapter.ViewHolder> {
     private CategoryListViewModel categoryListViewModel;
@@ -35,12 +34,16 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        Category category = categoryListViewModel.getCategoryList().get(position);
+        int countPlayers = categoryListViewModel.countPlayersWithCategoryId(category.getId());
+        holder.categoryNameTextView.setText(category.getCategoryName());
 
+        holder.playersInCategoryTextView.setText(Integer.toString(countPlayers));
     }
 
     @Override
     public int getItemCount() {
-        List<Category> categoryList = categoryListViewModel.getCategoryList().getValue();
+        List<Category> categoryList = categoryListViewModel.getCategoryList();
         if (categoryList != null) {
             return categoryList.size();
         }

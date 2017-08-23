@@ -6,5 +6,7 @@
     <!-- Text View -->
     <dimen name="text_view_margin_normal">8dp</dimen>
     <!-- End Text View -->
-
+    <!-- Action Button -->
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- End Action Button -->
 </resources>
