@@ -15,4 +15,6 @@
     <!-- Edit Text -->
     <dimen name="edit_text_view_margin_normal">10dp</dimen>
     <!-- End Edit Text -->
+    <!--View space -->
+    <dimen name="height_space">3dp</dimen>
 </resources>

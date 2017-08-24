@@ -3,6 +3,7 @@ package unii.entertainment.teammaker.category.viewmodel;
 
 import android.support.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,10 @@ public class CategoryListViewModel extends BaseViewModel {
 
     private List<Category> categoryList;
     private Map<Integer, Integer> playersInSelectedCategory;
+
+    public CategoryListViewModel() {
+        categoryList = new ArrayList<>();
+    }
 
     public List<Category> getCategoryList() {
         return categoryList;
@@ -33,7 +38,8 @@ public class CategoryListViewModel extends BaseViewModel {
 
     @Nullable
     public Integer countPlayersWithCategoryId(int categoryId) {
-        return playersInSelectedCategory.get(categoryId);
+        return 6;
+        //return playersInSelectedCategory.get(categoryId);
     }
 
     private void populateMap(PlayerDao playerDao) {
@@ -43,5 +49,16 @@ public class CategoryListViewModel extends BaseViewModel {
                 playersInSelectedCategory.put(category.getId(), counted);
             }
         }
+    }
+
+    public boolean addCategory(String categoryName) {
+        //false if category exist
+
+        Category category = new Category();
+        category.setCategoryName(categoryName);
+        //TODO: remove me!
+        category.setId(2);
+        categoryList.add(category);
+        return true;
     }
 }

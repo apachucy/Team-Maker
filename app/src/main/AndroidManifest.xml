@@ -3,10 +3,10 @@
     package="unii.entertainment.teammaker">
 
     <application
+        android:name=".TeamMakerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".TeamMakerApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CategoryListActivity">
@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".player.view.PlayerActivity"></activity>
     </application>
 
 </manifest>

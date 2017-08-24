@@ -50,10 +50,13 @@ public class CategoryFragment extends BaseFragment {
                         //Display text with information about empty String!
                         return;
                     }
-                    String categoryName = (String) input;
-                    Category category = new Category();
-                    category.setCategoryName(categoryName);
+                    String categoryName = input.toString();
+                    boolean success = viewModel.addCategory(categoryName);
                     //     teamMakerDatabase.getCategoryDao().save(category);
+                    if (success) {
+                        showList();
+                        categoryAdapter.notifyDataSetChanged();
+                    }
                 }).show();
     }
 
@@ -83,20 +86,19 @@ public class CategoryFragment extends BaseFragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, view);
-    //    injectDependencies();
+        //    injectDependencies();
 
-        // viewModel.init(teamMakerDatabase);
+        viewModel = new CategoryListViewModel();
         if (viewModel.getCategoryList() == null || viewModel.getCategoryList().isEmpty()) {
             hideList();
         } else {
             showList();
-            categoryAdapter = new CategoryListAdapter(viewModel);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-            listView.setLayoutManager(mLayoutManager);
-            listView.setItemAnimator(new DefaultItemAnimator());
-            listView.setAdapter(categoryAdapter);
-
         }
+        categoryAdapter = new CategoryListAdapter(viewModel);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        listView.setLayoutManager(mLayoutManager);
+        listView.setItemAnimator(new DefaultItemAnimator());
+        listView.setAdapter(categoryAdapter);
         return view;
     }
 

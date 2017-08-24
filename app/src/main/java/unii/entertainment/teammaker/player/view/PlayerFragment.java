@@ -53,9 +53,10 @@ public class PlayerFragment extends BaseFragment {
             showValidationProblemSnackBar();
             return;
         }
-        String playerNickName = playerName.getText().toString();
 
+        String playerNickName = playerName.getText().toString();
         boolean success = playerViewModel.checkPlayerName(playerNickName);
+
         if (!success) {
             showChangeNameWarningSnackBar();
             return;
@@ -71,7 +72,6 @@ public class PlayerFragment extends BaseFragment {
         playerName.setText("");
         genderRadioGroup.clearCheck();
         gameLevel.setRating(0);
-
     }
 
 
@@ -101,11 +101,5 @@ public class PlayerFragment extends BaseFragment {
         return true;
     }
 
-    private View.OnClickListener addNextPlayerListener = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View view) {
-            clearView();
-        }
-    };
+    private View.OnClickListener addNextPlayerListener = view -> clearView();
 }

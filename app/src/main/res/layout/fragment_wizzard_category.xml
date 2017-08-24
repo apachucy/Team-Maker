@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/team_number_inputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/edit_text_view_margin_normal"
+        android:layout_marginRight="@dimen/edit_text_view_margin_normal"
+        android:layout_marginTop="@dimen/edit_text_view_margin_normal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_view"
+        android:layout_marginStart="@dimen/edit_text_view_margin_normal"
+        android:layout_marginEnd="@dimen/edit_text_view_margin_normal">
+
+        <EditText
+            android:id="@+id/team_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/select_number_of_teams"
+            android:inputType="numberDecimal|numberSigned" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Switch
+        android:id="@+id/diverse_teams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edit_text_view_margin_normal"
+        android:layout_marginLeft="@dimen/edit_text_view_margin_normal"
+        android:layout_marginRight="@dimen/edit_text_view_margin_normal"
+        android:layout_marginTop="@dimen/edit_text_view_margin_normal"
+        android:text="@string/create_mixed_teams"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team_number_inputLayout"
+        app:layout_constraintVertical_bias="0.35"
+        android:layout_marginStart="@dimen/edit_text_view_margin_normal"
+        android:layout_marginEnd="@dimen/edit_text_view_margin_normal" />
+</android.support.constraint.ConstraintLayout>
