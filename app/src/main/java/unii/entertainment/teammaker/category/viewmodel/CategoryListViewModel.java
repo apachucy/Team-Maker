@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import unii.entertainment.teammaker.base.viewmodel.BaseViewModel;
+import unii.entertainment.teammaker.base.BaseViewModel;
 import unii.entertainment.teammaker.category.model.Category;
 import unii.entertainment.teammaker.persitence.TeamMakerDatabase;
 import unii.entertainment.teammaker.player.persistance.PlayerDao;

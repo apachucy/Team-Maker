@@ -11,4 +11,16 @@
     <string name="dialog_prefill">Volleyball</string>
     <!--end dialogs -->
 
+    <!--Player View-->
+    <string name="hint_player_name">Player Name</string>
+    <string name="gender_text">Which gender you are?</string>
+    <string name="select_game_level">Game level</string>
+    <string name="button_clear">Clear</string>
+    <string name="button_add">Add</string>
+    <string name="clear_player">All player data was cleared</string>
+    <string name="warning_validation_player">Not all data was provided</string>
+    <string name="warning_provided_player_exist">Change player name</string>
+    <string name="player_not_fully_registered">Please fill all requirement fields</string>
+    <string name="player_add_next_title">Add next player?</string>
+    <string name="player_add_next_action">Yes</string>
 </resources>

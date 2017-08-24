@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import unii.entertainment.teammaker.R;
-import unii.entertainment.teammaker.base.viewmodel.BaseFragment;
+import unii.entertainment.teammaker.base.BaseFragment;
 import unii.entertainment.teammaker.category.adapter.CategoryListAdapter;
 import unii.entertainment.teammaker.category.model.Category;
 import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;

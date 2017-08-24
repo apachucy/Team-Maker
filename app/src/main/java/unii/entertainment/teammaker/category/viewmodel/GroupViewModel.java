@@ -1,7 +1,7 @@
 package unii.entertainment.teammaker.category.viewmodel;
 
 
-import unii.entertainment.teammaker.base.viewmodel.BaseViewModel;
+import unii.entertainment.teammaker.base.BaseViewModel;
 import unii.entertainment.teammaker.category.model.Category;
 
 public class GroupViewModel extends BaseViewModel {

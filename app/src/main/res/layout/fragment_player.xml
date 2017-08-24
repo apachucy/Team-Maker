@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/playerName_inputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/edit_text_view_margin_normal"
+            android:layout_marginLeft="@dimen/edit_text_view_margin_normal"
+            android:layout_marginRight="@dimen/edit_text_view_margin_normal"
+            android:layout_marginStart="@dimen/edit_text_view_margin_normal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </android.support.design.widget.TextInputLayout>
+
+        <EditText
+            android:id="@+id/playerName_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/edit_text_view_margin_normal"
+            android:layout_marginLeft="@dimen/edit_text_view_margin_normal"
+            android:layout_marginRight="@dimen/edit_text_view_margin_normal"
+            android:layout_marginStart="@dimen/edit_text_view_margin_normal"
+            android:hint="@string/hint_player_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/select_gender_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text_view_margin_normal"
+            android:layout_marginLeft="@dimen/text_view_margin_normal"
+            android:layout_marginRight="@dimen/text_view_margin_normal"
+            android:layout_marginStart="@dimen/text_view_margin_normal"
+            android:layout_marginTop="@dimen/text_view_margin_normal"
+            android:text="@string/gender_text"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playerName_editText" />
+
+        <RadioGroup
+            android:id="@+id/gender_radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text_view_margin_normal"
+            android:layout_marginLeft="@dimen/text_view_margin_normal"
+            android:layout_marginRight="@dimen/text_view_margin_normal"
+            android:layout_marginStart="@dimen/text_view_margin_normal"
+            android:layout_marginTop="@dimen/text_view_margin_normal"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/select_gender_textView">
+
+            <RadioButton
+                android:id="@+id/female_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/male_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/select_game_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="@dimen/text_view_margin_normal"
+            android:layout_marginStart="@dimen/edit_text_view_margin_normal"
+            android:layout_marginTop="@dimen/text_view_margin_normal"
+            android:text="@string/select_game_level"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/select_gender_textView"
+            app:layout_constraintTop_toBottomOf="@+id/gender_radioGroup"
+            app:layout_constraintVertical_bias="0.100000024" />
+
+        <RatingBar
+            android:id="@+id/player_ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="@dimen/text_view_margin_normal"
+            android:layout_marginLeft="@dimen/text_view_margin_normal"
+            android:layout_marginRight="@dimen/text_view_margin_normal"
+            android:layout_marginStart="@dimen/text_view_margin_normal"
+            android:layout_marginTop="@dimen/text_view_margin_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/select_game_level"
+            app:layout_constraintVertical_bias="0.100000024" />
+
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/button_margin_normal"
+            android:layout_marginEnd="@dimen/button_margin_normal"
+            android:layout_marginRight="@dimen/button_margin_normal"
+            android:layout_marginTop="@dimen/button_margin_normal"
+            android:text="@string/button_clear"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintLeft_toRightOf="@+id/select_gender_textView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player_ratingBar" />
+
+        <Button
+            android:id="@+id/add_player_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/button_margin_normal"
+            android:layout_marginLeft="@dimen/button_margin_normal"
+            android:layout_marginStart="@dimen/button_margin_normal"
+            android:layout_marginTop="@dimen/button_margin_normal"
+            android:text="@string/button_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/select_gender_textView"
+            app:layout_constraintTop_toBottomOf="@+id/player_ratingBar" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,4 +1,4 @@
-package unii.entertainment.teammaker.base.viewmodel;
+package unii.entertainment.teammaker.base;
 
 import android.support.v7.app.AppCompatActivity;
 

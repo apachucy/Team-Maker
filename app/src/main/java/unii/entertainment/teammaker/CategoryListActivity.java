@@ -2,7 +2,7 @@ package unii.entertainment.teammaker;
 
 import android.os.Bundle;
 
-import unii.entertainment.teammaker.base.viewmodel.BaseActivity;
+import unii.entertainment.teammaker.base.BaseActivity;
 
 public class CategoryListActivity extends BaseActivity {
 
