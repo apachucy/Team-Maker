@@ -2,15 +2,19 @@ package unii.entertainment.teammaker.player.model;
 
 
 public class Player {
-    /**
-     * Id needs to be public :(
-     */
-    public int id;
-    private int categoryId;
+    public static final Long EMPTY_ID = -1L;
+    private Long id;
+    private Long categoryId;
 
     private Gender gender;
     private int advancementLevel;
     private String nickName;
+
+
+    public Player() {
+        id = EMPTY_ID;
+        categoryId = EMPTY_ID;
+    }
 
     public Gender getGender() {
         return gender;
@@ -37,11 +41,19 @@ public class Player {
     }
 
 
-    public int getCategoryId() {
+    public Long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
