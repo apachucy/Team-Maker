@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import unii.entertainment.teammaker.dagger.ActivityComponent;
+import unii.entertainment.teammaker.dagger.HasComponent;
 
 
 public abstract class BaseFragment extends Fragment {
+    private Snackbar actionSnackBar;
 
     public ActivityComponent getActivityComponent() {
         return ((BaseActivity) getActivity()).getComponent();
@@ -15,8 +17,9 @@ public abstract class BaseFragment extends Fragment {
 
     abstract protected void injectDependencies();
 
+    abstract protected void initView();
 
-    private Snackbar actionSnackBar;
+    abstract protected void initData(ActivityComponent component);
 
 
     protected void showActionSnackBar(View view, String title, int timer, String actionName, View.OnClickListener action) {

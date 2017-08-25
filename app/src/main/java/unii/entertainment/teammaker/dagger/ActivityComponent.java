@@ -9,24 +9,26 @@ import unii.entertainment.teammaker.player.view.PlayerActivity;
 import unii.entertainment.teammaker.player.view.PlayerFragment;
 import unii.entertainment.teammaker.player.viewmodel.PlayerViewModel;
 import unii.entertainment.teammaker.wizzard.view.CategoryWizardFragment;
+import unii.entertainment.teammaker.wizzard.viewmodel.WizardViewModel;
 
 @ActivityScope
 @Subcomponent(modules = {ActivityModule.class})
 public interface ActivityComponent {
     void inject(CategoryListActivity mainActivity);
 
+    void inject(PlayerActivity playerActivity);
+
     void inject(CategoryFragment categoryFragment);
 
     void inject(PlayerFragment playerFragment);
+
+    void inject(CategoryWizardFragment categoryWizardFragment);
 
     void inject(CategoryListViewModel viewModel);
 
     void inject(PlayerViewModel playerViewModel);
 
-    void inject(PlayerActivity playerActivity);
-
-    void inject(CategoryWizardFragment categoryWizardFragment);
-
+    void inject(WizardViewModel wizardViewModel);
 }
 
 

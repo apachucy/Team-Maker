@@ -38,7 +38,7 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Category category = categoryListViewModel.getCategoryList().get(position);
-        int countPlayers = categoryListViewModel.countPlayersWithCategoryId(category.getId());
+        int countPlayers = category.getPersonsInCategory();
         holder.categoryNameTextView.setText(category.getCategoryName());
 
         holder.playersInCategoryTextView.setText(Integer.toString(countPlayers));

@@ -13,6 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import unii.entertainment.teammaker.R;
 import unii.entertainment.teammaker.base.BaseFragment;
+import unii.entertainment.teammaker.dagger.ActivityComponent;
 import unii.entertainment.teammaker.wizzard.viewmodel.WizardViewModel;
 
 public class CategoryWizardFragment extends BaseFragment {
@@ -30,12 +31,24 @@ public class CategoryWizardFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_wizzard_category, container, false);
         ButterKnife.bind(this, view);
         injectDependencies();
+        initData(getActivityComponent());
+        initView();
         return view;
     }
 
     @Override
     protected void injectDependencies() {
         getActivityComponent().inject(this);
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData(ActivityComponent component) {
 
     }
 

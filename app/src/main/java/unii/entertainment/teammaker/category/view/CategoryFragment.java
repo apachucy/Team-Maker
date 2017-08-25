@@ -19,16 +19,12 @@ import butterknife.OnClick;
 import unii.entertainment.teammaker.R;
 import unii.entertainment.teammaker.base.BaseFragment;
 import unii.entertainment.teammaker.category.adapter.CategoryListAdapter;
-import unii.entertainment.teammaker.category.model.Category;
 import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;
-import unii.entertainment.teammaker.persitence.TeamMakerDatabase;
+import unii.entertainment.teammaker.dagger.ActivityComponent;
 
 public class CategoryFragment extends BaseFragment {
     private CategoryListViewModel viewModel;
     private RecyclerView.Adapter categoryAdapter;
-
-    // @Inject
-    TeamMakerDatabase teamMakerDatabase;
 
 
     @BindView(R.id.list_view)
@@ -52,22 +48,11 @@ public class CategoryFragment extends BaseFragment {
                     }
                     String categoryName = input.toString();
                     boolean success = viewModel.addCategory(categoryName);
-                    //     teamMakerDatabase.getCategoryDao().save(category);
                     if (success) {
                         showList();
                         categoryAdapter.notifyDataSetChanged();
                     }
                 }).show();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-
-       /* viewModel.getCategory().observe(this, category -> {
-            //Update UI ?
-        });*/
     }
 
 
@@ -87,23 +72,32 @@ public class CategoryFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, view);
         injectDependencies();
-
-        viewModel = new CategoryListViewModel();
-        if (viewModel.getCategoryList() == null || viewModel.getCategoryList().isEmpty()) {
-            hideList();
-        } else {
-            showList();
-        }
-        categoryAdapter = new CategoryListAdapter(viewModel);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        listView.setLayoutManager(mLayoutManager);
-        listView.setItemAnimator(new DefaultItemAnimator());
-        listView.setAdapter(categoryAdapter);
+        initData(getActivityComponent());
+        initView();
         return view;
     }
 
     @Override
     protected void injectDependencies() {
         getActivityComponent().inject(this);
+    }
+
+    @Override
+    protected void initView() {
+        if (viewModel.getCategoryList() == null || viewModel.getCategoryList().isEmpty()) {
+            hideList();
+        } else {
+            showList();
+        }
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        listView.setLayoutManager(mLayoutManager);
+        listView.setItemAnimator(new DefaultItemAnimator());
+        listView.setAdapter(categoryAdapter);
+    }
+
+    @Override
+    protected void initData(ActivityComponent component) {
+        viewModel = new CategoryListViewModel(component);
+        categoryAdapter = new CategoryListAdapter(viewModel);
     }
 }

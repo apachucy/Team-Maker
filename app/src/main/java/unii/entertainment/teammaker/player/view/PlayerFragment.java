@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import unii.entertainment.teammaker.R;
 import unii.entertainment.teammaker.base.BaseFragment;
+import unii.entertainment.teammaker.dagger.ActivityComponent;
 import unii.entertainment.teammaker.player.viewmodel.PlayerViewModel;
 
 public class PlayerFragment extends BaseFragment {
@@ -36,6 +37,8 @@ public class PlayerFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_player, container, false);
         ButterKnife.bind(this, view);
         injectDependencies();
+        initData(getActivityComponent());
+        initView();
         root = view;
         return view;
     }
@@ -107,6 +110,16 @@ public class PlayerFragment extends BaseFragment {
     @Override
     protected void injectDependencies() {
         getActivityComponent().inject(this);
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData(ActivityComponent component) {
 
     }
 }
