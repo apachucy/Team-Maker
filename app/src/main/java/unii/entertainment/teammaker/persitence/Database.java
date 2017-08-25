@@ -8,23 +8,23 @@ import unii.entertainment.teammaker.player.model.Player;
 
 public interface Database {
 
-    Player getPlayer(int playerId);
+    Player getPlayer(Long playerId);
 
-    List<Player> getPlayerInCategory(int categoryId);
+    List<Player> getPlayerInCategory(Long categoryId);
 
     List<Category> getAllCategories();
 
-    Category getCategory(int categoryId);
+    Category getCategory(Long categoryId);
 
-    Category getCategoryForSelectedPlayer(int playerId);
+    Category getCategoryForSelectedPlayer(Long playerId);
 
-    boolean isPlayerExistForCategory(int categoryId, String playerName);
+    boolean isPlayerExistForCategory(Long categoryId, String playerName);
 
     boolean isCategoryExist(String categoryName);
 
     void saveCategory(Category category);
 
-    void savePlayer(int categoryId, Player player);
+    void savePlayer(Long categoryId, Player player);
 
     void deletePlayer(Player player);
 
