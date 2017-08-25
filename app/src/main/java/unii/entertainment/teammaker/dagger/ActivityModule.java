@@ -1,11 +1,11 @@
 package unii.entertainment.teammaker.dagger;
-/*
+
 import android.support.v7.app.AppCompatActivity;
 
 
 import dagger.Module;
 
-/*
+
 @Module
 public class ActivityModule implements IActivityModule{
 
@@ -18,4 +18,3 @@ public class ActivityModule implements IActivityModule{
     }
 }
 
-*/

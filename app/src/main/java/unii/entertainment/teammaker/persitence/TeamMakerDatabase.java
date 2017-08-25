@@ -3,15 +3,25 @@ package unii.entertainment.teammaker.persitence;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import unii.entertainment.teammaker.category.model.Category;
+import unii.entertainment.teammaker.dagger.ApplicationComponent;
 import unii.entertainment.teammaker.db.DaoSession;
 import unii.entertainment.teammaker.player.model.Player;
 
 public class TeamMakerDatabase implements Database {
 
+    @Inject
     DaoSession daoSession;
+    @Inject
     PlayerConverter playerConverter;
+    @Inject
     CategoryConverter categoryConverter;
+
+    public TeamMakerDatabase(ApplicationComponent component) {
+        component.inject(this);
+    }
 
     @Override
     public Player getPlayer(Long playerId) {

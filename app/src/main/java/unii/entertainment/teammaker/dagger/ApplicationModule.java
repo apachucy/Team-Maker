@@ -1,33 +1,68 @@
 package unii.entertainment.teammaker.dagger;
-/*
 
-import android.arch.persistence.room.Room;
+
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import unii.entertainment.teammaker.db.DaoMaster;
+import unii.entertainment.teammaker.db.DaoSession;
+import unii.entertainment.teammaker.persitence.CategoryConverter;
+import unii.entertainment.teammaker.persitence.PlayerConverter;
 import unii.entertainment.teammaker.persitence.TeamMakerDatabase;
-/*
+
 @Module
 public class ApplicationModule implements IApplicationModule {
-
-    private final Context mContext;
-    private final HasComponent<ApplicationComponent> mHasApplicationComponent;
-
+    private final static String DATABASE_NAME = "team_maker.db";
+    private final Context context;
+    private final HasComponent<ApplicationComponent> hasApplicationComponent;
+    private DaoMaster.DevOpenHelper helper;
+    private SQLiteDatabase db;
+    private DaoMaster daoMaster;
+    private DaoSession daoSession;
 
     public ApplicationModule(Context context, HasComponent<ApplicationComponent> applicationComponent) {
-        mContext = context;
-        this.mHasApplicationComponent = applicationComponent;
+        this.context = context;
+        this.hasApplicationComponent = applicationComponent;
     }
 
     @Override
     @Provides
     @Singleton
-    public TeamMakerDatabase provideDatabase() {
-        return null;
+    public DaoSession provideDaoSession() {
+        //OpenSession
+        if (helper == null) {
+            helper = new DaoMaster.DevOpenHelper(context, DATABASE_NAME, null);
+            db = helper.getWritableDatabase();
+            daoMaster = new DaoMaster(db);
+            daoSession = daoMaster.newSession();
+        }
+        return daoSession;
+    }
+
+    @Override
+    @Provides
+    @Singleton
+    public PlayerConverter providePlayerConverter() {
+        return new PlayerConverter();
+    }
+
+    @Override
+    @Provides
+    @Singleton
+    public CategoryConverter provideCategoryConverter() {
+        return new CategoryConverter();
+    }
+
+    @Override
+    @Provides
+    @Singleton
+    public TeamMakerDatabase provideApplicationDatabase() {
+        return new TeamMakerDatabase(hasApplicationComponent.getComponent());
     }
 
 
-}*/
+}

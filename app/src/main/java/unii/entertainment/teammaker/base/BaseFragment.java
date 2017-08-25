@@ -4,16 +4,18 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import unii.entertainment.teammaker.dagger.ActivityComponent;
+
 
 public abstract class BaseFragment extends Fragment {
-    /*
-        public ActivityComponent getActivityComponent() {
-            return ((BaseActivity) getActivity()).getComponent();
-        }
 
-        abstract protected void injectDependencies();
+    public ActivityComponent getActivityComponent() {
+        return ((BaseActivity) getActivity()).getComponent();
+    }
 
-    */
+    abstract protected void injectDependencies();
+
+
     private Snackbar actionSnackBar;
 
 

@@ -29,7 +29,14 @@ public class CategoryWizardFragment extends BaseFragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wizzard_category, container, false);
         ButterKnife.bind(this, view);
+        injectDependencies();
         return view;
+    }
+
+    @Override
+    protected void injectDependencies() {
+        getActivityComponent().inject(this);
+
     }
 
     @Override

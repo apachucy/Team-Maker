@@ -86,7 +86,7 @@ public class CategoryFragment extends BaseFragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, view);
-        //    injectDependencies();
+        injectDependencies();
 
         viewModel = new CategoryListViewModel();
         if (viewModel.getCategoryList() == null || viewModel.getCategoryList().isEmpty()) {
@@ -102,8 +102,8 @@ public class CategoryFragment extends BaseFragment {
         return view;
     }
 
- /*   @Override
+    @Override
     protected void injectDependencies() {
         getActivityComponent().inject(this);
-    }*/
+    }
 }

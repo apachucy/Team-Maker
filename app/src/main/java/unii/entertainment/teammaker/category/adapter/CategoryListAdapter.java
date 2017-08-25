@@ -61,7 +61,7 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
 
         @OnClick(R.id.row_category)
         public void checkItem(View currentItemView) {
-            int categoryId = categoryListViewModel.getCategoryList().get(getAdapterPosition()).getId();
+            Long categoryId = categoryListViewModel.getCategoryList().get(getAdapterPosition()).getId();
             //TODO: open new view with providedId
             Context context = currentItemView.getContext();
             Intent intent = new Intent(context, PlayerActivity.class);

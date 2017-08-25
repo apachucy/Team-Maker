@@ -1,10 +1,18 @@
 package unii.entertainment.teammaker.base;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import unii.entertainment.teammaker.TeamMakerApplication;
+import unii.entertainment.teammaker.dagger.ActivityComponent;
+import unii.entertainment.teammaker.dagger.ActivityModule;
+import unii.entertainment.teammaker.dagger.ApplicationComponent;
+import unii.entertainment.teammaker.dagger.HasComponent;
 
-public abstract class BaseActivity extends AppCompatActivity  {
- /*   private ActivityComponent mActivityComponent;
+
+public abstract class BaseActivity extends AppCompatActivity implements HasComponent<ActivityComponent> {
+    private ActivityComponent mActivityComponent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,5 +35,5 @@ public abstract class BaseActivity extends AppCompatActivity  {
     }
 
     protected abstract void injectDependencies(final ActivityComponent activityComponent);
-*/
+
 }

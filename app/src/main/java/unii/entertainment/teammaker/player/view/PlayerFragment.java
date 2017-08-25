@@ -35,6 +35,7 @@ public class PlayerFragment extends BaseFragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_player, container, false);
         ButterKnife.bind(this, view);
+        injectDependencies();
         root = view;
         return view;
     }
@@ -102,4 +103,10 @@ public class PlayerFragment extends BaseFragment {
     }
 
     private View.OnClickListener addNextPlayerListener = view -> clearView();
+
+    @Override
+    protected void injectDependencies() {
+        getActivityComponent().inject(this);
+
+    }
 }

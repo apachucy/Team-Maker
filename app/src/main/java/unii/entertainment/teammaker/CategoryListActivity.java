@@ -3,6 +3,7 @@ package unii.entertainment.teammaker;
 import android.os.Bundle;
 
 import unii.entertainment.teammaker.base.BaseActivity;
+import unii.entertainment.teammaker.dagger.ActivityComponent;
 
 public class CategoryListActivity extends BaseActivity {
 
@@ -12,8 +13,8 @@ public class CategoryListActivity extends BaseActivity {
         setContentView(R.layout.activity_category_list);
     }
 
- /*   @Override
+    @Override
     protected void injectDependencies(ActivityComponent activityComponent) {
         activityComponent.inject(this);
-    }*/
+    }
 }
