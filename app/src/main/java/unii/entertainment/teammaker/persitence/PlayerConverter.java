@@ -11,6 +11,9 @@ public class PlayerConverter implements Converter<Player, unii.entertainment.tea
     private static final int MALE_VALUE = 1;
     private static final int FEMALE_VALUE = 0;
 
+    public PlayerConverter() {
+    }
+
     @Override
     public Player convertToModel(unii.entertainment.teammaker.db.Player object) {
         Player player = new Player();

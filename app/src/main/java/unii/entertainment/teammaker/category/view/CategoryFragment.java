@@ -3,6 +3,7 @@ package unii.entertainment.teammaker.category.view;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,7 +26,7 @@ import unii.entertainment.teammaker.dagger.ActivityComponent;
 public class CategoryFragment extends BaseFragment {
     private CategoryListViewModel viewModel;
     private RecyclerView.Adapter categoryAdapter;
-
+    private View root;
 
     @BindView(R.id.list_view)
     RecyclerView listView;
@@ -43,10 +44,17 @@ public class CategoryFragment extends BaseFragment {
                 .input(R.string.dialog_add_category_hint, R.string.dialog_prefill, (dialog, input) -> {
                     // Do something
                     if (input == null || input.length() == 0) {
-                        //Display text with information about empty String!
+                        //TODO: Display text with information about empty String!
+                        showInformationSnackBar(root, getString(R.string.category_name_not_provided_warning), Snackbar.LENGTH_SHORT);
                         return;
                     }
+
                     String categoryName = input.toString();
+
+                    if (viewModel.categoryExist(categoryName)) {
+                        showInformationSnackBar(root, getString(R.string.category_exist_warning), Snackbar.LENGTH_SHORT);
+                        return;
+                    }
                     boolean success = viewModel.addCategory(categoryName);
                     if (success) {
                         showList();
@@ -71,6 +79,7 @@ public class CategoryFragment extends BaseFragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, view);
+        root = view;
         injectDependencies();
         initData(getActivityComponent());
         initView();

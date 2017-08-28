@@ -4,6 +4,10 @@ import unii.entertainment.teammaker.category.model.Category;
 import unii.entertainment.teammaker.repository.Converter;
 
 public class CategoryConverter implements Converter<Category, unii.entertainment.teammaker.db.Category> {
+
+    public CategoryConverter() {
+    }
+
     @Override
     public Category convertToModel(unii.entertainment.teammaker.db.Category object) {
         Category category = new Category();

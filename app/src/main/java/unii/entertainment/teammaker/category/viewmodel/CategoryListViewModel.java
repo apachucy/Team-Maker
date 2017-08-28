@@ -26,6 +26,10 @@ public class CategoryListViewModel extends BaseViewModel {
         return categoryList;
     }
 
+    public boolean categoryExist(String categoryName) {
+        return teamMakerDatabase.isCategoryExist(categoryName);
+    }
+
     public boolean addCategory(String categoryName) {
         //false if category exist
 
@@ -33,7 +37,6 @@ public class CategoryListViewModel extends BaseViewModel {
         category.setCategoryName(categoryName);
         category.setPersonsInCategory(0);
         teamMakerDatabase.saveCategory(category);
-        categoryList.add(category);
-        return true;
+        return categoryList.add(category);
     }
 }
