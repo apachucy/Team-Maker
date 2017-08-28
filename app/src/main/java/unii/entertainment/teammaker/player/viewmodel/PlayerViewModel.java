@@ -1,30 +1,38 @@
 package unii.entertainment.teammaker.player.viewmodel;
 
 
+import javax.inject.Inject;
+
 import unii.entertainment.teammaker.R;
 import unii.entertainment.teammaker.base.BaseViewModel;
+import unii.entertainment.teammaker.dagger.ActivityComponent;
+import unii.entertainment.teammaker.persitence.TeamMakerDatabase;
 import unii.entertainment.teammaker.player.model.Gender;
 import unii.entertainment.teammaker.player.model.Player;
 
 public class PlayerViewModel extends BaseViewModel {
-    private Player player;
+    private Long categoryId;
+    @Inject
+    TeamMakerDatabase teamMakerDatabase;
 
-
-    public boolean checkPlayerName(String playerName) {
-        //TODO; check if player exist in db
-
-        return false;
+    public PlayerViewModel(ActivityComponent component, Long categoryId) {
+        component.inject(this);
+        this.categoryId = categoryId;
     }
 
-    public boolean addPlayer(String playerName, int gender, int gameLevel) {
+    public boolean isPlayerExistForCategory(String playerName) {
+        return teamMakerDatabase.isPlayerExistForCategory(categoryId, playerName);
+    }
 
-        player = new Player();
+    public void addPlayer(String playerName, int gender, int gameLevel) {
+
+        Player player = new Player();
         player.setNickName(playerName);
         Gender sex = convertGender(gender);
         player.setGender(sex);
         player.setAdvancementLevel(gameLevel);
         //if not save a player to local db
-        return true;
+        teamMakerDatabase.savePlayer(categoryId, player);
     }
 
 

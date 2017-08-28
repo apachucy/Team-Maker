@@ -10,9 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="unii.entertainment.teammaker.player.view.PlayerActivity">
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="unii.entertainment.teammaker.player.view.PlayerFragment"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"

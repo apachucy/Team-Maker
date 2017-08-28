@@ -20,8 +20,10 @@ import unii.entertainment.teammaker.dagger.ActivityComponent;
 import unii.entertainment.teammaker.player.viewmodel.PlayerViewModel;
 
 public class PlayerFragment extends BaseFragment {
-    PlayerViewModel playerViewModel;
-    View root;
+    private static final int RADIO_BUTTON_NOT_CHECKED = -1;
+    private PlayerViewModel playerViewModel;
+    private View root;
+    private Long categoryId;
     @BindView(R.id.playerName_editText)
     EditText playerName;
 
@@ -59,17 +61,14 @@ public class PlayerFragment extends BaseFragment {
         }
 
         String playerNickName = playerName.getText().toString();
-        boolean success = playerViewModel.checkPlayerName(playerNickName);
+        boolean success = playerViewModel.isPlayerExistForCategory(playerNickName);
 
-        if (!success) {
+        if (success) {
             showChangeNameWarningSnackBar();
             return;
         }
-        success = playerViewModel.addPlayer(playerNickName, genderRadioGroup.getCheckedRadioButtonId(), gameLevel.getNumStars());
-
-        if (success) {
-            showAddNextPlayerSnackBar();
-        }
+        playerViewModel.addPlayer(playerNickName, genderRadioGroup.getCheckedRadioButtonId(), gameLevel.getNumStars());
+        showAddNextPlayerSnackBar();
     }
 
     private void clearView() {
@@ -96,10 +95,10 @@ public class PlayerFragment extends BaseFragment {
         if (playerName.getText() == null || playerName.getText().toString().isEmpty()) {
             return false;
         }
-        if (!genderRadioGroup.isSelected()) {
+        if (genderRadioGroup.getCheckedRadioButtonId() == RADIO_BUTTON_NOT_CHECKED) {
             return false;
         }
-        if (!gameLevel.isSelected() || gameLevel.getRating() == 0) {
+        if (gameLevel.getNumStars() == 0) {
             return false;
         }
         return true;
@@ -120,6 +119,7 @@ public class PlayerFragment extends BaseFragment {
 
     @Override
     protected void initData(ActivityComponent component) {
-
+        categoryId = getArguments().getLong(PlayerActivity.BUNDLE_CATEGORY_ID);
+        playerViewModel = new PlayerViewModel(component, categoryId);
     }
 }

@@ -26,7 +26,6 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
         this.categoryListViewModel = categoryListViewModel;
     }
 
-    //TODO what to do if list is empty?
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflatedView = LayoutInflater.from(parent.getContext())
@@ -62,7 +61,6 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
         @OnClick(R.id.row_category)
         public void checkItem(View currentItemView) {
             Long categoryId = categoryListViewModel.getCategoryList().get(getAdapterPosition()).getId();
-            //TODO: open new view with providedId
             Context context = currentItemView.getContext();
             Intent intent = new Intent(context, PlayerActivity.class);
             intent.putExtra(PlayerActivity.BUNDLE_CATEGORY_ID, categoryId);

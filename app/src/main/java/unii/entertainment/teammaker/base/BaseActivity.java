@@ -2,6 +2,7 @@ package unii.entertainment.teammaker.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import unii.entertainment.teammaker.TeamMakerApplication;
@@ -27,6 +28,15 @@ public abstract class BaseActivity extends AppCompatActivity implements HasCompo
 
         mActivityComponent = applicationComponent.plus(new ActivityModule(this, this));
         return mActivityComponent;
+    }
+
+    protected void replaceFragments(Fragment fragment, String tag, int container) {
+        Fragment fragmentFound = getSupportFragmentManager().findFragmentByTag(tag);
+        if (fragmentFound != null) {
+            getSupportFragmentManager().beginTransaction().show(fragmentFound).commit();
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(container, fragment, tag).commit();
+        }
     }
 
     @Override

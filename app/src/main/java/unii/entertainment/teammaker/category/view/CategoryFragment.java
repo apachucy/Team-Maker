@@ -44,7 +44,6 @@ public class CategoryFragment extends BaseFragment {
                 .input(R.string.dialog_add_category_hint, R.string.dialog_prefill, (dialog, input) -> {
                     // Do something
                     if (input == null || input.length() == 0) {
-                        //TODO: Display text with information about empty String!
                         showInformationSnackBar(root, getString(R.string.category_name_not_provided_warning), Snackbar.LENGTH_SHORT);
                         return;
                     }
@@ -108,5 +107,12 @@ public class CategoryFragment extends BaseFragment {
     protected void initData(ActivityComponent component) {
         viewModel = new CategoryListViewModel(component);
         categoryAdapter = new CategoryListAdapter(viewModel);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //TODO: improve me
+        categoryAdapter.notifyDataSetChanged();
     }
 }

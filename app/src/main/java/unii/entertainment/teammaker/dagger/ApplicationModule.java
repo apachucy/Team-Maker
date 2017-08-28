@@ -46,22 +46,8 @@ public class ApplicationModule implements IApplicationModule {
     @Override
     @Provides
     @Singleton
-    public PlayerConverter providePlayerConverter() {
-        return new PlayerConverter();
-    }
-
-    @Override
-    @Provides
-    @Singleton
-    public CategoryConverter provideCategoryConverter() {
-        return new CategoryConverter();
-    }
-
-    @Override
-    @Provides
-    @Singleton
     public TeamMakerDatabase provideApplicationDatabase() {
-        return new TeamMakerDatabase(hasApplicationComponent.getComponent());
+        return new TeamMakerDatabase(hasApplicationComponent.getComponent(), new PlayerConverter(), new CategoryConverter());
     }
 
 

@@ -14,13 +14,13 @@ public class TeamMakerDatabase implements Database {
 
     @Inject
     DaoSession daoSession;
-    @Inject
-    PlayerConverter playerConverter;
-    @Inject
-    CategoryConverter categoryConverter;
+    private PlayerConverter playerConverter;
+    private CategoryConverter categoryConverter;
 
-    public TeamMakerDatabase(ApplicationComponent component) {
+    public TeamMakerDatabase(ApplicationComponent component, PlayerConverter playerConverter, CategoryConverter categoryConverter) {
         component.inject(this);
+        this.playerConverter = playerConverter;
+        this.categoryConverter = categoryConverter;
     }
 
     @Override
