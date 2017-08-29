@@ -45,5 +45,6 @@ public abstract class BaseActivity extends AppCompatActivity implements HasCompo
     }
 
     protected abstract void injectDependencies(final ActivityComponent activityComponent);
+    protected abstract void initToolBar();
 
 }
