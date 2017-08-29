@@ -8,8 +8,8 @@ import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;
 import unii.entertainment.teammaker.player.view.PlayerActivity;
 import unii.entertainment.teammaker.player.view.PlayerFragment;
 import unii.entertainment.teammaker.player.viewmodel.PlayerViewModel;
-import unii.entertainment.teammaker.wizzard.view.CategoryWizardFragment;
-import unii.entertainment.teammaker.wizzard.viewmodel.WizardViewModel;
+import unii.entertainment.teammaker.wizard.view.CategoryWizardFragment;
+import unii.entertainment.teammaker.wizard.viewmodel.WizardViewModel;
 
 @ActivityScope
 @Subcomponent(modules = {ActivityModule.class})

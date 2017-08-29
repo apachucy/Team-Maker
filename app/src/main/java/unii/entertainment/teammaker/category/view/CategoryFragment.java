@@ -23,7 +23,7 @@ import unii.entertainment.teammaker.base.BaseFragment;
 import unii.entertainment.teammaker.category.adapter.CategoryListAdapter;
 import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;
 import unii.entertainment.teammaker.dagger.ActivityComponent;
-import unii.entertainment.teammaker.wizzard.viewmodel.WizardActivity;
+import unii.entertainment.teammaker.wizard.viewmodel.WizardActivity;
 
 public class CategoryFragment extends BaseFragment {
     private CategoryListViewModel viewModel;

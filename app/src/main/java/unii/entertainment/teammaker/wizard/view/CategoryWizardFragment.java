@@ -1,4 +1,4 @@
-package unii.entertainment.teammaker.wizzard.view;
+package unii.entertainment.teammaker.wizard.view;
 
 
 import android.os.Bundle;
@@ -14,10 +14,9 @@ import butterknife.ButterKnife;
 import unii.entertainment.teammaker.R;
 import unii.entertainment.teammaker.base.BaseFragment;
 import unii.entertainment.teammaker.dagger.ActivityComponent;
-import unii.entertainment.teammaker.wizzard.viewmodel.WizardViewModel;
 
 public class CategoryWizardFragment extends BaseFragment {
-    private WizardViewModel wizardViewModel;
+    // private WizardViewModel wizardViewModel;
 
     @BindView(R.id.team_number)
     EditText teamNumberView;
@@ -55,10 +54,10 @@ public class CategoryWizardFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-        saveIsDiverseTeam();
-        saveTeamNumber();
+        //      saveIsDiverseTeam();
+        //      saveTeamNumber();
     }
-
+/*
     @Override
     public void onResume() {
         super.onResume();
@@ -85,5 +84,5 @@ public class CategoryWizardFragment extends BaseFragment {
         } catch (NumberFormatException e) {
             //display an error?
         }
-    }
+    }*/
 }

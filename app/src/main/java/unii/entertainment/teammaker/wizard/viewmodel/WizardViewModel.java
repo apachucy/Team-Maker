@@ -1,4 +1,4 @@
-package unii.entertainment.teammaker.wizzard.viewmodel;
+package unii.entertainment.teammaker.wizard.viewmodel;
 
 
 import unii.entertainment.teammaker.base.BaseViewModel;

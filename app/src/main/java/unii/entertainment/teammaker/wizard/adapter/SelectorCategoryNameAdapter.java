@@ -1,4 +1,4 @@
-package unii.entertainment.teammaker.wizzard.adapter;
+package unii.entertainment.teammaker.wizard.adapter;
 
 
 import android.support.v7.widget.RecyclerView;
