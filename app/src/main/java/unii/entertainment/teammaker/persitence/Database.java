@@ -29,4 +29,6 @@ public interface Database {
     void deletePlayer(Player player);
 
     void deleteCategory(Category category);
+
+    List<Category> getAllCategoriesWithPlayers();
 }

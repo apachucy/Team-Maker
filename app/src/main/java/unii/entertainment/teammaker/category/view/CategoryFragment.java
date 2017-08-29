@@ -1,5 +1,6 @@
 package unii.entertainment.teammaker.category.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -22,6 +23,7 @@ import unii.entertainment.teammaker.base.BaseFragment;
 import unii.entertainment.teammaker.category.adapter.CategoryListAdapter;
 import unii.entertainment.teammaker.category.viewmodel.CategoryListViewModel;
 import unii.entertainment.teammaker.dagger.ActivityComponent;
+import unii.entertainment.teammaker.wizzard.viewmodel.WizardActivity;
 
 public class CategoryFragment extends BaseFragment {
     private CategoryListViewModel viewModel;
@@ -33,18 +35,29 @@ public class CategoryFragment extends BaseFragment {
     @BindView(R.id.empty_text)
     TextView emptyView;
 
-    @BindView(R.id.action_button)
+    @BindView(R.id.edit_action_button)
     FloatingActionButton actionButton;
 
-    @OnClick(R.id.action_button)
-    public void onActionButtonClicked(View v) {
+
+    @OnClick(R.id.create_teams_action_button)
+    public void onTeamGenerateActionButtonClicked(View v) {
+        if (viewModel.categoryWithPlayersExist()) {
+            Intent intent = new Intent(getContext(), WizardActivity.class);
+            startActivity(intent);
+            return;
+        }
+        showInformationSnackBar(root,getString(R.string.warning_category_add_more_persons), Snackbar.LENGTH_SHORT);
+    }
+
+    @OnClick(R.id.edit_action_button)
+    public void onEditActionButtonClicked(View v) {
         new MaterialDialog.Builder(getContext())
                 .title(R.string.dialog_add_category_title)
                 .content(R.string.dialog_add_category_body)
                 .input(R.string.dialog_add_category_hint, R.string.dialog_prefill, (dialog, input) -> {
                     // Do something
                     if (input == null || input.length() == 0) {
-                        showInformationSnackBar(root, getString(R.string.category_name_not_provided_warning), Snackbar.LENGTH_SHORT);
+                        showInformationSnackBar(root, getString(R.string.warning_category_name_not_provided), Snackbar.LENGTH_SHORT);
                         return;
                     }
 
@@ -112,7 +125,7 @@ public class CategoryFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        //TODO: improve me
+        //TODO: improve me - nie dzierga
         categoryAdapter.notifyDataSetChanged();
     }
 }

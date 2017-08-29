@@ -11,7 +11,6 @@ import unii.entertainment.teammaker.dagger.ActivityComponent;
 import unii.entertainment.teammaker.persitence.TeamMakerDatabase;
 
 public class CategoryListViewModel extends BaseViewModel {
-
     private List<Category> categoryList;
 
     @Inject
@@ -28,6 +27,11 @@ public class CategoryListViewModel extends BaseViewModel {
 
     public boolean categoryExist(String categoryName) {
         return teamMakerDatabase.isCategoryExist(categoryName);
+    }
+
+    public boolean categoryWithPlayersExist() {
+        List<Category> allCategories = teamMakerDatabase.getAllCategoriesWithPlayers();
+        return !allCategories.isEmpty();
     }
 
     public boolean addCategory(String categoryName) {

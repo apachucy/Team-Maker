@@ -61,6 +61,7 @@ public class PlayerFragment extends BaseFragment {
         }
 
         String playerNickName = playerName.getText().toString();
+        //TODO: wystepuje problem podczas dodawania 2ch zawodnikow  o tej samej nazwie z rzedu -sa oni dodawani
         boolean success = playerViewModel.isPlayerExistForCategory(playerNickName);
 
         if (success) {

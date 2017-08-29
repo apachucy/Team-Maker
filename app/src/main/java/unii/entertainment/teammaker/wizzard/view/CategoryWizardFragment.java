@@ -28,7 +28,7 @@ public class CategoryWizardFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wizzard_category, container, false);
+        View view = inflater.inflate(R.layout.fragment_wizard_category, container, false);
         ButterKnife.bind(this, view);
         injectDependencies();
         initData(getActivityComponent());

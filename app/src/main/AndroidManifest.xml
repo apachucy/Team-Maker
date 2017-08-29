@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".player.view.PlayerActivity"></activity>
+        <activity android:name=".player.view.PlayerActivity" />
+        <activity
+            android:name=".wizzard.viewmodel.WizardActivity"
+            android:label="@string/title_activity_wizard"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

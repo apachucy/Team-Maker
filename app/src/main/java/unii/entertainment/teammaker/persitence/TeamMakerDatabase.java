@@ -11,6 +11,7 @@ import unii.entertainment.teammaker.db.DaoSession;
 import unii.entertainment.teammaker.player.model.Player;
 
 public class TeamMakerDatabase implements Database {
+    private static final int AT_LEAST_TWO_PLAYERS = 2;
 
     @Inject
     DaoSession daoSession;
@@ -110,6 +111,20 @@ public class TeamMakerDatabase implements Database {
             daoSession.getPlayerDao().delete(dbPlayer);
         }
         daoSession.getCategoryDao().delete(dbCategory);
+    }
+
+    @Override
+    public List<Category> getAllCategoriesWithPlayers() {
+        List<unii.entertainment.teammaker.db.Category> dbCategoryList = daoSession.getCategoryDao().loadAll();
+        List<Category> modelCategoryList = new ArrayList<>();
+
+        for (unii.entertainment.teammaker.db.Category singleCategory : dbCategoryList) {
+            if (singleCategory.getPlayers() != null && singleCategory.getPlayers().size() >= AT_LEAST_TWO_PLAYERS) {
+                modelCategoryList.add(categoryConverter.convertToModel(singleCategory));
+            }
+        }
+
+        return modelCategoryList;
     }
 
     private boolean isPlayerExist(String playerName, List<unii.entertainment.teammaker.db.Player> playerList) {

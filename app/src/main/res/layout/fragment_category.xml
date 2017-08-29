@@ -20,16 +20,26 @@
             android:id="@+id/empty_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:ems="10"
+            android:gravity="center"
             android:text="@string/empty_text_warning" />
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/action_button"
+        android:id="@+id/edit_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_anchor="@+id/create_teams_action_button"
+        app:layout_anchorGravity="top" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/create_teams_action_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_edit" />
+        android:src="@android:drawable/ic_menu_view" />
 </android.support.design.widget.CoordinatorLayout>
